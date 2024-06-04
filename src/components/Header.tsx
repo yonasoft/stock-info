@@ -1,25 +1,22 @@
 import React from "react";
-import { FaMagnifyingGlass } from "react-icons/fa6";
 
 type Props = {
-  searchField: string;
-  setSearchField: (symbol: string) => void;
-  onSearch: () => void;
-  onFocus: () => void;
+	searchField: string;
+	setSearchField: (symbol: string) => void;
+	onSearch: () => void;
+	onFocus: () => void;
 };
 
 const Header = ({ searchField, setSearchField, onSearch, onFocus }: Props) => {
-  return (
-    <header
-      className="
-  flex flex-col items-center justify-center h-24 bg-gray-900 text-white text-2xl font-bold"
-    >
-      <h1>Stock Market Overview</h1>
-      <div>
-
-      </div>
-    </header>
-  );
+	return (
+		<header
+			className="
+  		flex flex-col items-center justify-center h-24 bg-gray-900 text-white text-2xl font-bold"
+		>
+			<h1>Stock Market Overview</h1>
+			<div></div>
+		</header>
+	);
 };
 
 export default Header;

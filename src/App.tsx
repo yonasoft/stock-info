@@ -8,7 +8,7 @@ function App() {
   const [symbol, setSymbol] = React.useState<string>("AAPL");
 
   return (
-    <div className="App flex flex-col h-screen ">
+    <div className="App flex flex-col h-screen">
       <Header
         searchField={searchField}
         setSearchField={setSearchField}

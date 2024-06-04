@@ -15,7 +15,13 @@ const StockOverview: React.FC<{ symbol: string }> = ({ symbol }) => {
         const overviewData = await getOverview(symbol);
         setData(overviewData);
       } catch (err) {
-        setError("Error fetching data");
+        setError("Error fetching data. Using cached data if available.");
+        const cachedData = localStorage.getItem(`overview_${symbol}`);
+        if (cachedData) {
+          setData(JSON.parse(cachedData));
+        } else {
+          setError("No cached data available.");
+        }
       } finally {
         setLoading(false);
       }
