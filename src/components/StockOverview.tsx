@@ -28,7 +28,7 @@ const StockOverview: React.FC<{ symbol: string }> = ({ symbol }) => {
   if (error) return <div>{error}</div>;
 
   return (
-    <div>
+    <div className="bg-gray-700 text-white h-full p-6">
       <h2>Stock Overview for {symbol}</h2>
       {data && (
         <ul>
