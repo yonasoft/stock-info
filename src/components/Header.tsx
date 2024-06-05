@@ -1,13 +1,7 @@
 import React from "react";
 
-type Props = {
-  searchField: string;
-  setSearchField: (symbol: string) => void;
-  onSearch: () => void;
-  onFocus: () => void;
-};
 
-const Header = ({ searchField, setSearchField, onSearch, onFocus }: Props) => {
+const Header = () => {
   return (
     <header
       className="

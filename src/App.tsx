@@ -1,28 +1,13 @@
 import React from "react";
 import "./App.css";
-import StockOverview from "./components/StockOverview";
+import StockInformation from "./pages/StockInformation";
 import Header from "./components/Header";
-
 function App() {
-  const [searchField, setSearchField] = React.useState<string>("");
-  const [symbol, setSymbol] = React.useState<string>("AAPL");
-
   return (
     <div className="App flex flex-col h-screen bg-gray-700  text-white overflow-y-scroll overflow-x-clip">
-      <Header
-        searchField={searchField}
-        setSearchField={setSearchField}
-        onFocus={() => {
-          setSearchField("");
-        }}
-        onSearch={() => {
-          const upperCaseSymbol = searchField.toUpperCase();
-          setSymbol(upperCaseSymbol);
-          setSearchField("");
-        }}
-      />
+      <Header />
       <div className="lg:container h-full mx-auto ">
-        <StockOverview symbol={symbol} />
+        <StockInformation ticker={"AAPL"} />
       </div>
     </div>
   );

@@ -1,4 +1,3 @@
-// src/api/alphaVantage.ts
 import axios from "axios";
 
 const apiKey = process.env.REACT_APP_ALPHA_VANTAGE_API_KEY;
