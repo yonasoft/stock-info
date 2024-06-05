@@ -11,38 +11,29 @@ const apiClient = axios.create({
   },
 });
 
-export const getOverview = async (symbol: string) => {
+
+export const getEarnings = async (symbol: string) => {
   try {
     const response = await apiClient.get("", {
       params: {
-        function: "OVERVIEW",
+        function: "EARNINGS",
         symbol: symbol,
       },
     });
     console.log(response.data);
 
     // Save data to localStorage
-    localStorage.setItem(`overview_${symbol}`, JSON.stringify(response.data));
+    localStorage.setItem(`earnings_${symbol}`, JSON.stringify(response.data));
     return response.data;
   } catch (error) {
     console.error("Error fetching data", error);
 
     // Retrieve data from localStorage in case of error
-    const cachedData = localStorage.getItem(`overview_${symbol}`);
+    const cachedData = localStorage.getItem(`earnings_${symbol}`);
     if (cachedData) {
       return JSON.parse(cachedData);
     } else {
       throw new Error("No cached data available");
     }
   }
-};
-
-export const getEarnings = async (symbol: string) => {
-  const response = await apiClient.get("", {
-    params: {
-      function: "EARNINGS",
-      symbol,
-    },
-  });
-  return response.data;
 };
