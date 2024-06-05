@@ -46,7 +46,7 @@ const StockOverview: React.FC<{ symbol: string }> = ({ symbol }) => {
       <h2 className="text-blue-400 text-2xl">Stock Overview for:</h2>
       <h1 className="text-4xl font-bold">{symbol}</h1>
       <div></div>
-      <div className="flex flex-wrap justify-center w-full m-4">
+      <div className="flex flex-wrap justify-center w-full mt-4">
         {financialLoading ? (
           <p>Loading financial data...</p>
         ) : (
