@@ -40,21 +40,21 @@ const StockOverview: React.FC<{ symbol: string }> = ({ symbol }) => {
   ];
 
   return (
-    <div className="h-full w-full flex flex-col align-middle pt-3">
+    <div className="h-full w-full flex flex-col align-middle pt-3 mb-4">
       <h2 className="text-blue-400 text-2xl">Stock Overview for:</h2>
       <h1 className="text-4xl font-bold">{symbol}</h1>
-      <div className="min-h-52 h-[50vh] bg-gray-900 shadow-lg rounded-xl m-4 overflow-x-auto">
+      <div className="min-h-60 h-[50vh] bg-gray-900 shadow-lg rounded-xl m-4 overflow-x-auto">
         vbvcb
       </div>
       <div className="w-full mt-2 grid grid-cols-12 gap-4">
-        <div className="col-span-12 lg:col-span-6 flex flex-row flex-wrap gap-2 justify-center">
+        <div className="col-span-12 lg:col-span-6 flex flex-row flex-wrap gap-2 justify-center mx-4">
           {(financialLoading && <p>Loading...</p>) ||
             (financialError && <p>Error: {financialError}</p>) ||
             ratios.map((ratio, index) => (
               <InfoCard key={index} title={ratio.title} value={ratio.value} />
             ))}
         </div>
-        <div className="col-span-12 lg:col-span-6 bg-gray-900 rounded-xl p-2 mx-4 shadow-lg">
+        <div className="col-span-12 lg:col-span-6 bg-gray-900 rounded-xl p-2 mx-4 mb-5 shadow-lg">
           <AnalysisTable
             data={financialData?.analyst_estimates as AnalystEstimates}
           />

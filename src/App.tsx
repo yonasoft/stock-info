@@ -8,7 +8,7 @@ function App() {
   const [symbol, setSymbol] = React.useState<string>("AAPL");
 
   return (
-    <div className="App flex flex-col h-screen bg-gray-700 text-white overflow-y-scroll overflow-x-clip">
+    <div className="App flex flex-col h-screen bg-gray-700  text-white overflow-y-scroll overflow-x-clip">
       <Header
         searchField={searchField}
         setSearchField={setSearchField}
@@ -21,7 +21,7 @@ function App() {
           setSearchField("");
         }}
       />
-      <div className="lg:container h-full mx-auto mb-6 p-0 ">
+      <div className="lg:container h-full mx-auto ">
         <StockOverview symbol={symbol} />
       </div>
     </div>
