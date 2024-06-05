@@ -41,16 +41,19 @@ const StockOverview: React.FC<{ symbol: string }> = ({ symbol }) => {
     },
   ];
 
-
   return (
     <div className="h-full p-4 flex flex-col align-middle">
       <h2 className="text-blue-400 text-2xl">Stock Overview for:</h2>
       <h1 className="text-4xl font-bold">{symbol}</h1>
       <div></div>
       <div className="flex flex-wrap justify-center w-full m-4">
-        {ratios.map((ratio, index) => (
-          <InfoCard key={index} title={ratio.title} value={ratio.value} />
-        ))}
+        {financialLoading ? (
+          <p>Loading financial data...</p>
+        ) : (
+          ratios.map((ratio, index) => (
+            <InfoCard key={index} title={ratio.title} value={ratio.value} />
+          ))
+        )}
       </div>
     </div>
   );
