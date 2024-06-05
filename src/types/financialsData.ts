@@ -15,6 +15,7 @@ export interface News {
 }
 
 export interface AnalystEstimates {
+  [key: string]: number;
   Citibank: number;
   "Goldman Sachs": number;
   "Morgan Stanley": number;

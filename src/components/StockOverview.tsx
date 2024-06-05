@@ -1,13 +1,11 @@
 // src/components/StockOverview.tsx
 import React from "react";
-import useAlphaVantage from "../hooks/useEarnings";
 import InfoCard from "./InfoCard";
 import useFinancials from "../hooks/useFinancials";
+import AnalysisTable from "./AnalysisTable";
+import { AnalystEstimates } from "../types/financialsData";
 
 const StockOverview: React.FC<{ symbol: string }> = ({ symbol }) => {
-  const { earningsData, earningsLoading, earningsError } = useAlphaVantage({
-    symbol,
-  });
   const { financialData, financialLoading, financialError } = useFinancials();
 
   const ratios = [
@@ -42,18 +40,25 @@ const StockOverview: React.FC<{ symbol: string }> = ({ symbol }) => {
   ];
 
   return (
-    <div className="h-full flex flex-col align-middle">
+    <div className="h-full w-full flex flex-col align-middle pt-3">
       <h2 className="text-blue-400 text-2xl">Stock Overview for:</h2>
       <h1 className="text-4xl font-bold">{symbol}</h1>
-      <div></div>
-      <div className="flex flex-wrap justify-center w-full mt-4">
-        {financialLoading ? (
-          <p>Loading financial data...</p>
-        ) : (
-          ratios.map((ratio, index) => (
-            <InfoCard key={index} title={ratio.title} value={ratio.value} />
-          ))
-        )}
+      <div className="min-h-52 h-[50vh]  bg-gray-900 rounded-xl m-4 overflow-x-auto">
+        vbvcb
+      </div>
+      <div className="w-full mt-2 grid grid-cols-12 gap-4">
+        <div className="col-span-12 lg:col-span-6 flex flex-row flex-wrap gap-2 justify-center">
+          {(financialLoading && <p>Loading...</p>) ||
+            (financialError && <p>Error: {financialError}</p>) ||
+            ratios.map((ratio, index) => (
+              <InfoCard key={index} title={ratio.title} value={ratio.value} />
+            ))}
+        </div>
+        <div className="col-span-12 lg:col-span-6 bg-gray-900 rounded-xl p-2">
+          <AnalysisTable
+            data={financialData?.analyst_estimates as AnalystEstimates}
+          />
+        </div>
       </div>
     </div>
   );
