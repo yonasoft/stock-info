@@ -13,7 +13,7 @@ const StockOverview: React.FC<{ symbol: string }> = ({ symbol }) => {
   const ratios = [
     {
       title: "Market Capitalization",
-      value: financialData?.market_cap.toString() || "",
+      value: financialData?.market_ap.toString() || "",
     },
     {
       title: "Shares Outstanding",

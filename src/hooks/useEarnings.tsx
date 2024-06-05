@@ -1,6 +1,6 @@
 // src/hooks/useAlphaVantage.ts
 import { useEffect, useState } from "react";
-import { EarningsData } from "../types/stockData";
+import { EarningsData } from "../types/earningsData";
 import { getEarnings } from "../api/earnings";
 
 type Props = { symbol: string };

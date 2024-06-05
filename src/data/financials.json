@@ -7,7 +7,7 @@
   "current_ratio": 7.1,
   "debt_to_equity_ratio": 2.1,
   "eps": 1.7,
-  "market_ap": 2.5,
+  "market_ap": 2.5, 
   "news": {
     "article1": {
       "sentiment": {

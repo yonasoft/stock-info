@@ -25,7 +25,7 @@ export interface FinancialData {
   current_ratio: number;
   debt_to_equity_ratio: number;
   eps: number;
-  market_cap: number;
+  market_ap: number;
   news: News;
   pb_ratio: number;
   pe_ratio: number;
