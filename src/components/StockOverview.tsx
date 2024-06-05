@@ -1,54 +1,39 @@
 // src/components/StockOverview.tsx
-import React, { useEffect, useState } from "react";
-import { getOverview } from "../api/alphaVantage";
-import { OverviewData } from "../types/stockData";
+import React from "react";
+import useAlphaVantage from "../hooks/useAlphaVantage";
+import InfoCard from "./InfoCard";
 
 const StockOverview: React.FC<{ symbol: string }> = ({ symbol }) => {
-  const [data, setData] = useState<OverviewData | null>(null);
-  const [loading, setLoading] = useState<boolean>(true);
-  const [error, setError] = useState<string | null>(null);
-
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        setLoading(true);
-        const overviewData = await getOverview(symbol);
-        setData(overviewData);
-      } catch (err) {
-        setError("Error fetching data. Using cached data if available.");
-        const cachedData = localStorage.getItem(`overview_${symbol}`);
-        if (cachedData) {
-          setData(JSON.parse(cachedData));
-        } else {
-          setError("No cached data available.");
-        }
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchData();
-  }, [symbol]);
+  const { data, loading, error } = useAlphaVantage({ symbol });
 
   if (loading) return <div>Loading...</div>;
   if (error) return <div>{error}</div>;
 
+  const ratios = [
+    { title: "Market Capitalization", value: data?.MarketCapitalization },
+    { title: "Shares Outstanding", value: data?.SharesOutstanding },
+    { title: "Earnings-per-share(EPS)", value: data?.EPS },
+    { title: "Price-to-Earnings(P/E)", value: data?.PERatio },
+    { title: "Price-to-Sales(P/S)", value: data?.PriceToSalesRatioTTM },
+    { title: "Price-to-Book(P/B)", value: data?.PriceToBookRatio },
+    { title: "Debt To Equity Ratio", value: data?.DebtToEquityRatio },
+  ];
+
   return (
-    <div className="bg-gray-700 text-white h-full p-6">
-      <h2>Stock Overview for {symbol}</h2>
-      {data && (
-        <ul>
-          <li>Market Cap: {data.MarketCapitalization}</li>
-          <li>Shares Outstanding: {data.SharesOutstanding}</li>
-          <li>P/E Ratio: {data.PERatio}</li>
-          <li>P/S Ratio: {data.PriceToSalesRatioTTM}</li>
-          <li>P/B Ratio: {data.PriceToBookRatio}</li>
-          <li>PEG Ratio: {data.PEGRatio}</li>
-          <li>Current Ratio: {data.CurrentRatio}</li>
-          <li>Debt to Equity Ratio: {data.DebtToEquityRatio}</li>
-          <li>EPS: {data.EPS}</li>
-        </ul>
-      )}
+    <div className="h-full p-6 flex flex-col align-middle">
+      <h2 className="text-blue-400 text-2xl">Stock Overview for: </h2>
+      <h1 className="text-4xl font-bold">{symbol}</h1>
+      <div></div>
+      <div className="flex flex-row flex-wrap">
+        {data &&
+          ratios.map((ratio, index) => (
+            <InfoCard
+              key={index}
+              title={ratio.title}
+              value={ratio.value || ""}
+            />
+          ))}
+      </div>
     </div>
   );
 };
