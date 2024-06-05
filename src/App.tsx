@@ -21,7 +21,7 @@ function App() {
           setSearchField("");
         }}
       />
-      <div className="lg:container mx-auto">
+      <div className="lg:container mx-auto p-0">
         <StockOverview symbol={symbol} />
       </div>
     </div>
