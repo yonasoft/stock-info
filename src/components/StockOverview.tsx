@@ -54,7 +54,7 @@ const StockOverview: React.FC<{ symbol: string }> = ({ symbol }) => {
               <InfoCard key={index} title={ratio.title} value={ratio.value} />
             ))}
         </div>
-        <div className="col-span-12 lg:col-span-6 bg-gray-900 rounded-xl p-2">
+        <div className="col-span-12 lg:col-span-6 bg-gray-900 rounded-xl p-2 mx-4">
           <AnalysisTable
             data={financialData?.analyst_estimates as AnalystEstimates}
           />

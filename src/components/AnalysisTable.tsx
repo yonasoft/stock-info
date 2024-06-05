@@ -7,7 +7,7 @@ type Props = {
 
 const AnalysisTable = ({ data }: Props) => {
   return (
-    <table className="w-full text-center table-auto">
+    <table className="w-full text-center table-auto bg-gray-900">
       <thead>
         <tr>
           <th>Analyst</th>
