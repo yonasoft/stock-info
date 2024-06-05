@@ -43,7 +43,7 @@ const StockOverview: React.FC<{ symbol: string }> = ({ symbol }) => {
     <div className="h-full w-full flex flex-col align-middle pt-3">
       <h2 className="text-blue-400 text-2xl">Stock Overview for:</h2>
       <h1 className="text-4xl font-bold">{symbol}</h1>
-      <div className="min-h-52 h-[50vh]  bg-gray-900 rounded-xl m-4 overflow-x-auto">
+      <div className="min-h-52 h-[50vh] bg-gray-900 shadow-lg rounded-xl m-4 overflow-x-auto">
         vbvcb
       </div>
       <div className="w-full mt-2 grid grid-cols-12 gap-4">
@@ -54,7 +54,7 @@ const StockOverview: React.FC<{ symbol: string }> = ({ symbol }) => {
               <InfoCard key={index} title={ratio.title} value={ratio.value} />
             ))}
         </div>
-        <div className="col-span-12 lg:col-span-6 bg-gray-900 rounded-xl p-2 mx-4">
+        <div className="col-span-12 lg:col-span-6 bg-gray-900 rounded-xl p-2 mx-4 shadow-lg">
           <AnalysisTable
             data={financialData?.analyst_estimates as AnalystEstimates}
           />
