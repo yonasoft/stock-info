@@ -1,12 +1,13 @@
 // src/hooks/usePrices.ts
 import { useEffect, useState } from "react";
 import { getPrices } from "../api/prices";
+import { TwelveDataResponse } from "../types/pricesData";
 
 type Props = { ticker?: string; interval: string };
 
 // Custom hook to fetch price data
 const usePrices = ({ ticker, interval }: Props) => {
-  const [pricesData, setPricesData] = useState<any>(null);
+  const [pricesData, setPricesData] = useState<TwelveDataResponse | null>(null);
   const [pricesLoading, setPricesLoading] = useState<boolean>(true);
   const [pricesError, setPricesError] = useState<string | null>(null);
 
