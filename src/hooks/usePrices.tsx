@@ -14,7 +14,7 @@ const usePrices = ({ ticker, interval }: Props) => {
     const fetchData = async () => {
       if (!ticker) return;
       try {
-        setPricesLoading(true);
+        if (!pricesData) setPricesLoading(true);
         const data = await getPrices(ticker, interval);
         setPricesData(data);
       } catch (err) {
