@@ -1,7 +1,7 @@
 import axios from "axios";
 
 // This file is used to fetch stock price data from the Twelve Data API
-const apiKey = "e7c871634f874ee5b8c7a238557bed81"; // Corrected variable name
+const apiKey = "e7c871634f874ee5b8c7a238557bed81"; 
 const baseURL = "https://api.twelvedata.com";
 
 const apiClient = axios.create({

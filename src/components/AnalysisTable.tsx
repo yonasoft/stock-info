@@ -5,6 +5,7 @@ type Props = {
   data: AnalystEstimates;
 };
 
+// AnalysisTable component which displays the analyst estimates
 const AnalysisTable = ({ data }: Props) => {
   return (
     <table className="w-full text-center table-auto bg-gray-900">

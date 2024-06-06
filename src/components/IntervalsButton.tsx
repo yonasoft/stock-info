@@ -8,7 +8,7 @@ type Props = {
 //Button for selecting intervals
 const IntervalsButton = ({ label, onClick }: Props) => {
   return (
-    <button className="border rounded-2xl p-1 text-sm" onClick={onClick}>
+    <button className="border rounded-2xl p-1 text-xs md:text-md" onClick={onClick}>
       {label}
     </button>
   );

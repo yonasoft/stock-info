@@ -5,7 +5,7 @@ type Props = {
   value: string;
 };
 
-// Component to display information in a card
+// Component to display financial information in a card
 function InfoCard({ title, value }: Props) {
   return (
     <div className="size-24 lg:size-26 rounded-lg bg-gray-900 flex flex-col items-center justify-center relative p-2 shadow-lg">

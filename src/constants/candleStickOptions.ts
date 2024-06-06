@@ -6,7 +6,7 @@ export const candleStickOptions: ApexOptions = {
     type: "candlestick",
     height: 350,
     toolbar: {
-      show: false, // This removes the menu that appears on the chart
+      show: false, 
     },
   },
   title: {
