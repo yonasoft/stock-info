@@ -54,8 +54,8 @@ const PricesChart = ({ ticker }: Props) => {
     <>
       {(pricesLoading && <p>Loading...</p>) ||
         (pricesError && <p>Error: {pricesError}</p>) || (
-          <div className="min-h-60 h-[50vh] bg-gray-900 shadow-lg rounded-xl m-4 text-white p-4 overflow-auto">
-            <div className="w-full my-4 flex flex-wrap gap-2 align-middle justify-center">
+          <div className="min-h-[50vh]  bg-gray-900 shadow-lg rounded-xl m-4 text-white p-4 overflow-visible">
+            <div className="w-full my-2 flex flex-wrap gap-1 align-middle justify-center">
               {intervals.map(({ label, value }) => (
                 <IntervalsButton
                   key={value}
