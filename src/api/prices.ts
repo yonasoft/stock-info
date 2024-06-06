@@ -1,5 +1,6 @@
 import axios from "axios";
 
+// This file is used to fetch stock price data from the Twelve Data API
 const apiKey = "e7c871634f874ee5b8c7a238557bed81"; // Corrected variable name
 const baseURL = "https://api.twelvedata.com";
 
@@ -18,6 +19,7 @@ export const getPrices = async (symbol: string, interval: string) => {
     });
     console.log(response.data);
 
+    // Save data to localStorage for caching purposes
     localStorage.setItem(
       `time_series_${symbol}_${interval}`,
       JSON.stringify(response.data)

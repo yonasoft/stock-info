@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { FinancialData } from "../types/financialsData";
 import { getFinancials } from "../api/financials";
 
+// Custom hook to fetch financial data
 const useFinancials = () => {
   const [financialData, setFinancialData] = useState<FinancialData | null>(
     null

@@ -6,6 +6,8 @@ import InfoCard from "./InfoCard";
 
 type Props = {};
 
+// FinancialInformation component which displays the financial information of the stock
+// Includes ratios and analyst estimates
 const FinancialInformation = (props: Props) => {
   const { financialData, financialLoading, financialError } = useFinancials();
 

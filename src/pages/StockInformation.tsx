@@ -1,6 +1,8 @@
 import PricesChart from "../components/PricesChart";
 import FinancialInformation from "../components/FinancialInformation";
 
+
+// Stock Information page which displays the stock information
 const StockInformation: React.FC<{ ticker: string }> = ({ ticker }) => {
   return (
     <div className="h-full w-full flex flex-col align-middle pt-3 mb-4">

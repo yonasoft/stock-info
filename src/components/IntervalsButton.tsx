@@ -5,6 +5,7 @@ type Props = {
   onClick: () => void;
 };
 
+//Button for selecting intervals
 const IntervalsButton = ({ label, onClick }: Props) => {
   return (
     <button className="border rounded-2xl p-1 text-sm" onClick={onClick}>

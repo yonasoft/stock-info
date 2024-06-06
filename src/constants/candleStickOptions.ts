@@ -1,5 +1,6 @@
 import { ApexOptions } from "apexcharts";
 
+// settings for the candlestick chart
 export const candleStickOptions: ApexOptions = {
   chart: {
     type: "candlestick",

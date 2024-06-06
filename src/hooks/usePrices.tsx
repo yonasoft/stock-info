@@ -4,6 +4,7 @@ import { getPrices } from "../api/prices";
 
 type Props = { ticker?: string; interval: string };
 
+// Custom hook to fetch price data
 const usePrices = ({ ticker, interval }: Props) => {
   const [pricesData, setPricesData] = useState<any>(null);
   const [pricesLoading, setPricesLoading] = useState<boolean>(true);

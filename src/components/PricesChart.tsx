@@ -18,6 +18,7 @@ type Props = {
   ticker: string;
 };
 
+// Component to display a chart of the stock prices
 const PricesChart = ({ ticker }: Props) => {
   const intervals = [
     { label: "1 Minute", value: "1min" },
