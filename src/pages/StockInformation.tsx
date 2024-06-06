@@ -1,4 +1,4 @@
-import EarningsChart from "../components/EarningsChart";
+import PricesChart from "../components/PricesChart";
 import FinancialInformation from "../components/FinancialInformation";
 
 const StockInformation: React.FC<{ ticker: string }> = ({ ticker }) => {
@@ -7,7 +7,7 @@ const StockInformation: React.FC<{ ticker: string }> = ({ ticker }) => {
       <h2 className="text-blue-400 text-2xl">Stock Overview for:</h2>
       <h1 className="text-4xl font-bold">{ticker}</h1>
 
-      <EarningsChart ticker={ticker} />
+      <PricesChart ticker={ticker} />
       <FinancialInformation />
     </div>
   );

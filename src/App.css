@@ -22,3 +22,7 @@
     transform: rotate(360deg);
   }
 }
+
+.apexcharts-tooltip span {
+	color: #ffffff;
+}
