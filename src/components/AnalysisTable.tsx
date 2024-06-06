@@ -9,10 +9,13 @@ type Props = {
 const AnalysisTable = ({ data }: Props) => {
   return (
     <table className="w-full text-center table-auto bg-gray-900">
+      <caption>
+        <h2 className="my-4 font-bold text-lg">Analyst Estimates</h2>
+      </caption>
       <thead>
         <tr>
-          <th>Analyst</th>
-          <th>Estimate</th>
+          <th scope="col">Analyst</th>
+          <th scope="col">Estimate</th>
         </tr>
       </thead>
       <tbody>
