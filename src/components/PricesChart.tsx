@@ -64,7 +64,7 @@ const PricesChart = ({ ticker }: Props) => {
                 />
               ))}
             </div>
-            <div className="h-full w-full overflow-auto">
+            <div className="h-full w-full">
               <ReactApexChart
                 options={candleStickOptions}
                 series={[{ data: seriesData }]}
