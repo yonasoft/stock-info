@@ -28,6 +28,12 @@ export const getPrices = async (
       `time_series_${symbol}_${interval}`,
       JSON.stringify(response.data)
     );
+
+    const cachedData = localStorage.getItem(
+      `time_series_${symbol}_${interval}`
+    );
+    console.log("Cached data after set", cachedData);
+
     return response.data;
   } catch (error) {
     console.error("Error fetching data", error);
@@ -36,7 +42,9 @@ export const getPrices = async (
     const cachedData = localStorage.getItem(
       `time_series_${symbol}_${interval}`
     );
+    
     if (cachedData) {
+      console.log("Cached data retrieved", cachedData);
       return JSON.parse(cachedData) as TwelveDataResponse;
     } else {
       throw new Error("No cached data available");
